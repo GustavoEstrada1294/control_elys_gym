@@ -1,0 +1,14 @@
+<div class="d-grid gap-2 col-6 mx-auto">
+  <%=link_to "NUEVO REGISTRO DE PAGO", new_payment_path, class:"btn btn-primary" %>
+</div>
+
+<h1 class="margin-50">Alumnas de <%=current_user.email%></h1>
+<% @payments.each do |payment| %>
+    
+    <h1><%=link_to payment.client.name, payment %></h1>
+   
+    <div>
+        <%= button_to "Eliminar", payment, class: "btn btn-outline-danger",method: :delete %>  
+    </div>
+    
+<%end%> 

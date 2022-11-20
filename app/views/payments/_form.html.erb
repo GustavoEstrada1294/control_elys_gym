@@ -1,0 +1,22 @@
+<h1><%= name %> Pago</h1>
+<%= form_for(@payment) do |f| %>
+    <% @payment.errors.full_messages.each do |message| %>
+        <div class= "be-red white top-space">
+            * <%= message %>
+        </div>
+    <%end%>
+    <div class="field">
+        <%= f.collection_select(:client_id, Client.all, :id, :name) %>
+    </div>
+    <div class="field">
+        <%= f.select(:subscription_type_id, SubscriptionType.all.collect { |st| [ st.name, st.id ] }, { include_blank: "" }) %>
+
+    </div>
+    <div class="field">
+        <%= f.select(:product_id, Product.all.collect { |st| [ st.name, st.id ] }, { include_blank: "" }) %>
+    </div>
+   
+    <div class="field">
+        <%= f.submit "Guardar", class:"btn-custom"%>
+    </div>
+<% end %>

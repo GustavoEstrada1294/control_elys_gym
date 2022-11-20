@@ -1,0 +1,8 @@
+es:
+  activerecord:
+    errors:
+      models:
+        payment:
+          attributes:
+            relationship_validation:
+              blanck: 'no se puede guardar con los campos vacios'

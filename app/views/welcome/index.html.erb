@@ -1,0 +1,14 @@
+<div style="margin-top:15%;
+            margin-left:45%;
+            margin-right:45%; ">
+    <% if user_signed_in? %>
+        <li class="col-md">
+            <%=button_to "Cerrar Sesion", destroy_user_session_path, method: :delete,class: "btn btn-link text-white" %> 
+        </li>
+    <%else%>
+        <li class="col-md">
+            <%=link_to "Iniciar sesion", new_user_session_path  %>
+        </li>
+        
+    <%end%>
+</div>

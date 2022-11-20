@@ -1,0 +1,18 @@
+# == Schema Information
+#
+# Table name: subscription_types
+#
+#  id         :integer          not null, primary key
+#  name       :string           not null
+#  total      :integer          not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+one:
+  name: MyString
+  total: 1
+
+two:
+  name: MyString
+  total: 1

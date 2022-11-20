@@ -1,0 +1,18 @@
+<%if @product.image.present?%>
+<div>
+    <%= image_tag url_for(@product.image) %>
+</div>    
+
+<%end%>
+
+<h1><%=@product.name %></h1>
+
+<h5> MARCA </h5>
+    <%= @product.trademark %>
+<h5> SUPLEMENTO </h5>
+     <%= @product.type_product %>
+
+<div>    
+    <%= @product.description %>
+</div>
+<div> <%=link_to "EDITAR", edit_product_path(@product), class:"btn btn-outline-primary"%></div>

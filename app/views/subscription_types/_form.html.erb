@@ -1,0 +1,18 @@
+<h1><%= name %> Pago</h1>
+<%= form_for(@subscription_type) do |f| %>
+    <% @subscription_type.errors.full_messages.each do |message| %>
+        <div class= "be-red white top-space">
+            * <%= message %>
+        </div>
+    <%end%>
+    <div class="field">
+        <%= f.text_field :name, placeholder: "Mes, Semana o dia", class:"form-control" %>
+    </div>
+    <div class="field">
+        <%= f.text_field :total, placeholder: "cantidad", class:"form-control" %>
+    </div>
+   
+    <div class="field">
+        <%= f.submit "Guardar", class:"btn-custom"%>
+    </div>
+<% end %>

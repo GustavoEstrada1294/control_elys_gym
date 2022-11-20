@@ -1,0 +1,9 @@
+<h1>Alumnas de  <%= @client.user.email %></h1>
+
+<h1><%= @client.name %></h1>
+
+
+
+<div>
+    <%=link_to "EDITAR", edit_client_path(@client), class:"btn btn-outline-primary"%>
+</div>
