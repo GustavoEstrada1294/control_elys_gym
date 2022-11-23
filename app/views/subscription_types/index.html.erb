@@ -2,15 +2,14 @@
   <%=link_to "NUEVO REGISTRO DE SUSCRIPCION", new_subscription_type_path, class:"btn btn-primary" %>
 </div>
 
-<div>
-  <% @subscription_types.each do |subscription| %>
-      
-      <h1><%=link_to subscription.name, subscription %></h1>
-      <h1><%=link_to subscription.total, subscription %></h1>
-    
-      <div>
+<div class="container">
+  <div class="row">
+    <% @subscription_types.each do |subscription| %>
+        <div class="col text-center">
+          <h1 class="mt-5"><%=link_to subscription.name, subscription %></h1>
+          <h1>$<%= subscription.total%></h1>
           <%= button_to "Eliminar", subscription, class: "btn btn-outline-danger",method: :delete %>  
-      </div>
-      
-  <%end%>  
+        </div>
+    <%end%>  
+  </div>
 </div>

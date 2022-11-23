@@ -1,10 +1,26 @@
-<h1>  GANANCIAS REGISTRADAS EN EL MES </h1>  
+<%= form_with url: "/incomes", method: :get do |f| %>
+    <div class="row">
+        <div class="col-2">
+            <div>
+                <%= f.date_field :born_on, class:"w-100"%>
+            </div>
+        </div>
+        <div class="col-2">
+            <div>
+                <%= f.date_field :born_on, class:"w-100"%>
+            </div>
+        </div>
+    </div>
 
-<h4><%=current_user.email %></h4>
+    <div>
+        <%= f.submit "Guardar", class:"btn btn-outline-success mt-3"%>
+    </div>
+<% end %>
 
-<h2>GYM</h2>
+<h5><%=current_user.email %></h5>
+<h1>GANANCIAS REGISTRADAS</h1>  
+<h2> Mes <%= Time.now.strftime("%B %y") %></h2>
 
-<h1>Ganancias totales </h1>
-<%= Time.now.strftime("%F") %>
+<h2>Ganancias del mes noviembre $<%=@total_month%></h2>
 
-<h1>$<%=@total %></h1>
+<h4>Ganancias totales desde el 2023 a la fecha$<%=@total%></h4>

@@ -26,6 +26,7 @@ a,a:visited{
     margin-top: 1em;
     height:50px; 
     width:550px;
+    margin-left: 11%;
 
     input {
         width: 30em;
@@ -43,10 +44,11 @@ a,a:visited{
     padding: 10px 0px;
     font-size: 1,2em;
 }
+
 .btn-custom{
     background-color:pink!important;
     text-transform: uppercase;
-    padding: 10px 12px;    
+    padding: 10px 12px;
 }
 .letter{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -57,3 +59,6 @@ a,a:visited{
     margin-top:50px;
 }
 
+.w-100{
+    width:100%
+}

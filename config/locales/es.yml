@@ -5,4 +5,4 @@ es:
         payment:
           attributes:
             relationship_validation:
-              blanck: 'no se puede guardar con los campos vacios'
+              blank: 'no se puede guardar con los campos vacios'
