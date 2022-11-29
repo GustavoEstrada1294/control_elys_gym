@@ -2,19 +2,20 @@
     <div class="row">
         <div class="col-2">
             <div>
-                <%= f.date_field :born_on, class:"w-100"%>
+                <%= date_field_tag :start_date, params[:start_date], class:"w-100"%>
             </div>
         </div>
         <div class="col-2">
             <div>
-                <%= f.date_field :born_on, class:"w-100"%>
+                <%= date_field_tag :end_date, params[:end_date], class:"w-100"%>
             </div>
+        </div>
+        <div>
+            <%= f.submit "Buscar", class:"btn btn-outline-success mt-3 pl-4 "%>
         </div>
     </div>
 
-    <div>
-        <%= f.submit "Guardar", class:"btn btn-outline-success mt-3"%>
-    </div>
+    
 <% end %>
 
 <h5><%=current_user.email %></h5>
@@ -24,3 +25,5 @@
 <h2>Ganancias del mes noviembre $<%=@total_month%></h2>
 
 <h4>Ganancias totales desde el 2023 a la fecha$<%=@total%></h4>
+
+<h2>Ganancias por rango $<%=@total_range%></h2>

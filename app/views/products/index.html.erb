@@ -2,35 +2,38 @@
   <%=link_to "CREAR NUEVO SUPLEMENTO", new_product_path, class:"btn btn-primary" %>
 </div>
 <div class="margin-50">
-    <div class="column">
-        <% @products.each do |product| %>
+    <div class="container">
+        <div class="row">
+            <% @products.each do |product| %>
+                <div class="col-sm-3">
 
-            <%if product.image.present?%>
-            <div>
-                <%= image_tag url_for(product.image) %>
-            </div>
+                    <%if product.image.present?%>
+                    <div>
+                        <%= image_tag url_for(product.image) %>
+                    </div>
+                    <%end%>
+                    <div>
+                        <h1><%=link_to product.name, product %></h1>
+                    </div>
+
+                    <div>
+                        <h4>MARCA</h5>
+                        <%=link_to product.trademark, product %>
+                    </div>
+                    <div>
+                        <h5>producto</h5>
+                        <%= product.type_product %>
+                    </div>
+                    <div>
+                        <h5>PRECIO</h5>
+                    <p> $<%= product.price %></p>
+                    </div>
+                    
+                    <div>
+                    <%= button_to "Eliminar", product, class: "btn btn-outline-danger",method: :delete %>  
+                    </div>
+                </div>
             <%end%>
-            <div>
-                <h1><%=link_to product.name, product %></h1>
-            </div>
-
-            <div>
-                <h4>MARCA</h5>
-                <%=link_to product.trademark, product %>
-            </div>
-            <div>
-                <h5>producto</h5>
-                <%= product.type_product %>
-            </div>
-            <div>
-                <h5>PRECIO</h5>
-               <p> $<%= product.price %></p>
-            </div>
-            
-            <div>
-            <%= button_to "Eliminar", product, class: "btn btn-outline-danger",method: :delete %>  
-            </div>
-
-        <%end%>
+        </div>
     </div>
 </div>

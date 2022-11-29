@@ -2,7 +2,7 @@
   <%=link_to "NUEVO REGISTRO DE PAGO", new_payment_path, class:"btn btn-primary" %>
 </div>
 
-<h1 class="margin-50">Alumnas de <%=current_user.email%></h1>
+<div class="margin-50"></div>
 <% @payments.each do |payment| %>
     
     <h1><%=link_to payment.client.name, payment %></h1>

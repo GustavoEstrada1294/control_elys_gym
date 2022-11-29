@@ -1,15 +1,25 @@
 <div class="d-grid gap-2 col-6 mx-auto">
   <%=link_to "NUEVO REGISTRO", new_client_path, class:"btn btn-primary" %>
 </div>
+<h4 class="margin-50">Alumnas de <%=current_user.email%></h4>
 
-<h1 class="margin-50">Alumnas de <%=current_user.email%></h1>
-<% @clients.each do |client| %>
-    
-    <h1><%=link_to client.name, client %></h1>
-    
-    <div>
-        <%= button_to "Eliminar", client, class: "btn btn-outline-danger",method: :delete %>  
-    </div>
-    
-<%end%>
+<table class="table table-striped">
+  <thead>
+    <th>Nombre</th>
+    <th>opciones</th>
+  </thead>
+  <tbody>
+    <% @clients.each do |client| %>
+      <tr>
+        <td><%=link_to client.name, client %></td>
+        <td><%= button_to "Eliminar", client, class: "btn btn-outline-danger",method: :delete %></td>
+      </tr>  
+    <%end%>
+  </tbody>
+
+
+</table>
+
+
+
 
