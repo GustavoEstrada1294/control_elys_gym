@@ -2,13 +2,32 @@
   <%=link_to "NUEVO REGISTRO DE PAGO", new_payment_path, class:"btn btn-primary" %>
 </div>
 
-<div class="margin-50"></div>
-<% @payments.each do |payment| %>
-    
-    <h1><%=link_to payment.client.name, payment %></h1>
-   
-    <div>
-        <%= button_to "Eliminar", payment, class: "btn btn-outline-danger",method: :delete %>  
-    </div>
-    
-<%end%> 
+
+<table class="table table-strip">
+  <thead>
+    <th>Nombre</th>
+    <th>pago</th>
+    <th>$</th>
+    <th>opciones</th>
+  </thead>
+  <tbody>
+    <% @payments.each do |payment| %>
+      <tr>
+        <td><%=link_to payment.client.name, payment %></td>
+          <%if payment.subscription_type.present?%>
+            <td><%=payment.subscription_type.name %></td>
+          <%else%>
+            <td><%=payment.product.name %></td>
+          <%end%>
+          <%if payment.subscription_type.present?%>
+            <td>$<%=payment.subscription_type.total %></td>
+          <%else%>
+            <td>$<%=payment.product.price %></td>
+          <%end%>
+
+        <td><%= button_to "Eliminar", payment, class: "btn btn-outline-danger",method: :delete %></td>
+
+      </tr>
+    <%end%> 
+  </tbody>
+</table>
