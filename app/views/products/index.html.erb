@@ -1,39 +1,37 @@
-<div class="d-grid gap-2 col-6 mx-auto">
-  <%=link_to "CREAR NUEVO SUPLEMENTO", new_product_path, class:"btn btn-primary" %>
-</div>
-<div class="margin-50">
-    <div class="container">
-        <div class="row">
+    <div class="d-grid gap-2 col-6 mx-auto">
+    <%=link_to "CREAR NUEVO SUPLEMENTO", new_product_path, class:"btn btn-primary" %>
+    </div>
+
+
+
+        <div class="row m-3">
             <% @products.each do |product| %>
-                <div class="col-sm-3">
-
-                    <%if product.image.present?%>
-                    <div class="imagen">
-                        <%= image_tag url_for(product.image) %>
-                    </div>
-                    <%end%>
-                    <div>
-                        <h1><%=link_to product.name, product %></h1>
-                    </div>
-
-                    <div>
-                        <h4>MARCA</h5>
-                        <%=link_to product.trademark, product %>
-                    </div>
-                    <div>
-                        <h5>producto</h5>
-                        <%= product.type_product %>
-                    </div>
-                    <div>
-                        <h5>PRECIO</h5>
-                    <p> $<%= product.price %></p>
-                    </div>
-                    
-                    <div>
-                    <%= button_to "Eliminar", product, class: "btn btn-outline-danger",method: :delete %>  
+                <div class="col-sm-3 mt-5">
+                    <div class="card" style="width: 18rem;">
+                        <div>
+                            <%if product.image.present?%>
+                                <%= image_tag url_for(product.image), class:"card-img-top" %>
+                            <%end%>
+                            <div class="card-body">
+                                <h5 class="card-title"><%= product.name %></h5>
+                                <p class="card-text">Un texto de ejemplo rápido para colocal cerca del título de la tarjeta y componer la mayor parte del contenido de la tarjeta.</p>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item"><%= product.trademark %></li>
+                                <li class="list-group-item"><%= product.type_product %><//li>
+                                <li class="list-group-item">$<%= product.price %><//li>
+                            </ul>
+                            <div class="card-body">
+                                <a href="#" class="card-link"><%= button_to "Eliminar", product, class: "btn btn-outline-danger",method: :delete %></a>
+                                <a href="#" class="card-link"><%=button_to "Ver mas", product, class: "btn btn-outline-danger",method: :get  %></a>
+                            </div>                              
+                        </div>
                     </div>
                 </div>
             <%end%>
         </div>
-    </div>
-</div>
+
+
+
+
+
