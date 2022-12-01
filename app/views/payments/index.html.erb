@@ -2,32 +2,57 @@
   <%=link_to "NUEVO REGISTRO DE PAGO", new_payment_path, class:"btn btn-primary" %>
 </div>
 
+<div class="row mt-5">
+    <div class="timetable">
+        <h5>PAGOS</h5>
+        
+            <%= form_with url: "/incomes", method: :get do |f| %>
+                <div class="d-flex"> 
+                <label>Dia de incio
+                    <%= date_field_tag :start_date, params[:start_date], class:"w-100"%>
+                </label>
+                <label>Dia final
+                    <%= date_field_tag :end_date, params[:end_date], class:"w-100"%>
+                </lable>   
+                </div>
+                <div>
+                    <%= f.submit "Buscar", class:"btn btn-outline-success mt-3 pl-4 "%>
+                </div>
+            <% end %>
+        
+    </div>
+</div>
 
-<table class="table table-strip">
-  <thead>
-    <th>Nombre</th>
-    <th>pago</th>
-    <th>$</th>
-    <th>opciones</th>
-  </thead>
-  <tbody>
-    <% @payments.each do |payment| %>
-      <tr>
-        <td><%=link_to payment.client.name, payment %></td>
-          <%if payment.subscription_type.present?%>
-            <td><%=payment.subscription_type.name %></td>
-          <%else%>
-            <td><%=payment.product.name %></td>
-          <%end%>
-          <%if payment.subscription_type.present?%>
-            <td>$<%=payment.subscription_type.total %></td>
-          <%else%>
-            <td>$<%=payment.product.price %></td>
-          <%end%>
-
-        <td><%= button_to "Eliminar", payment, class: "btn btn-outline-danger",method: :delete %></td>
-
-      </tr>
-    <%end%> 
-  </tbody>
-</table>
+<div class="margin-50">
+  <table class="table table-strip">
+    <thead>
+      <th>Nombre</th>
+      <th>pago</th>
+      <th>$</th>
+      <th>opciones</th>
+    </thead>
+    <tbody>
+      <% @payments.each do |payment| %>
+        <tr>
+          <td><%= payment.client.name%></td>
+            <%if payment.subscription_type.present?%>
+              <td><%=payment.subscription_type.name %></td>
+            <%else%>
+              <td><%=payment.product.name %></td>
+            <%end%>
+            <%if payment.subscription_type.present?%>
+              <td>$<%=payment.subscription_type.total %></td>
+            <%else%>
+              <td>$<%=payment.product.price %></td>
+            <%end%>
+            <td>
+            <div class="d-flex">
+              <%= link_to "Ver", payment, class: "btn btn-outline-success mr-3-custom" %>
+              <%= button_to "Eliminar", payment, class: "btn btn-outline-danger ",method: :delete %>
+            </div>
+            </td>
+        </tr>
+      <%end%> 
+    </tbody>
+  </table>
+</div>

@@ -45,16 +45,6 @@ a,a:visited{
     font-size: 1,2em;
 }
 
-.btn-custom{
-    background-color:pink!important;
-    text-transform: uppercase;
-    padding: 10px 12px;
-}
-.letter{
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-
-}
-
 .margin-50{
     margin-top:50px;
 }
@@ -69,4 +59,8 @@ a,a:visited{
 .card-img-top{
    height: 300px;
    width: 225px;
+}
+
+.timetable{
+    width: 400px !important;
 }

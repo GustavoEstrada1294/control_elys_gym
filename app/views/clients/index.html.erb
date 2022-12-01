@@ -1,6 +1,7 @@
 <div class="d-grid gap-2 col-6 mx-auto">
   <%=link_to "NUEVO REGISTRO", new_client_path, class:"btn btn-primary" %>
 </div>
+
 <h4 class="margin-50">Alumnas de <%=current_user.email%></h4>
 
 <table class="table table-striped">
@@ -14,7 +15,7 @@
         <td><%= client.name %></td>
         <td>
         <div class="d-flex">
-          <%= link_to "Ver", client, class: "btn btn-outline-primary mr-3-custom" %>
+          <%= link_to "Ver", client, class: "btn btn-outline-success mr-3-custom" %>
           <%= button_to "Eliminar", client, class: "btn btn-outline-danger ",method: :delete %>
         </div>
         </td>
