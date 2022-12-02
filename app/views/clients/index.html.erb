@@ -12,7 +12,7 @@
   <tbody>
     <% @clients.each do |client| %>
       <tr>
-        <td><%= client.name %></td>
+        <td class ="name_client"><%= client.name %></td>
         <td>
         <div class="d-flex">
           <%= link_to "Ver", client, class: "btn btn-outline-success mr-3-custom" %>

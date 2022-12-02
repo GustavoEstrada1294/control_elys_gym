@@ -2,8 +2,6 @@
     <%=link_to "CREAR NUEVO SUPLEMENTO", new_product_path, class:"btn btn-primary" %>
     </div>
 
-
-
         <div class="row m-3">
             <% @products.each do |product| %>
                 <div class="col-sm-3 mt-5">
@@ -13,7 +11,7 @@
                                 <%= image_tag url_for(product.image), class:"card-img-top" %>
                             <%end%>
                             <div class="card-body">
-                                <h5 class="card-title"><%= product.name %></h5>
+                                <h5 class="card-title text-capitalize"><%= product.name %></h5>
                                 <p class="card-text">Un texto de ejemplo rápido para colocal cerca del título de la tarjeta y componer la mayor parte del contenido de la tarjeta.</p>
                             </div>
                             <ul class="list-group list-group-flush">
@@ -23,7 +21,7 @@
                             </ul>
                             <div class="card-body">
                                 <a href="#" class="card-link"><%= button_to "Eliminar", product, class: "btn btn-outline-danger",method: :delete %></a>
-                                <a href="#" class="card-link"><%=button_to "Ver mas", product, class: "btn btn-outline-danger",method: :get  %></a>
+                                <a href="#" class="card-link"><%=button_to "Ver mas", product, class: "btn btn-outline-success",method: :get  %></a>
                             </div>                              
                         </div>
                     </div>

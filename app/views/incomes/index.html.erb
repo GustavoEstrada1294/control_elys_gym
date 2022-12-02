@@ -1,7 +1,35 @@
-<h1>GANANCIAS REGISTRADAS</h1>  
+<h1 class="text-center">GANANCIAS REGISTRADAS.</h1>  
 
-<h2>Ganancias del mes $<%=@total_month%></h2>
+<div class="container-xxl mt-5">
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="card text-white bg-primary mb-3 card_incomes">
+                <div class="card-body">
+                    <h2>Ganancias del mes $<%=@total_month%></h2>
+                </div>
+            </div>
+        </div>
+   
+   
+        <div class="col-sm-4">
+            <div class="card text-white bg-primary mb-3 card_incomes">
+                <div class="card-body">
+                    <h2> total desde el 2023 a la fecha$<%=@total%></h2>
+                </div>
+            </div>
+        </div>
+    
 
-<h4>Ganancias totales desde el 2023 a la fecha$<%=@total%></h4>
+        <div class="col-sm-4">
+            <div class="card text-white bg-primary mb-3 card_incomes">
+                <div class="card-body">
+                <h2>Ganancias por rango $<%=@total_range%></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-<h2>Ganancias por rango $<%=@total_range%></h2>
+
+
+

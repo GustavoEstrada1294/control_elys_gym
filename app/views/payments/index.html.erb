@@ -34,7 +34,7 @@
     <tbody>
       <% @payments.each do |payment| %>
         <tr>
-          <td><%= payment.client.name%></td>
+          <td class="name_client"><%= payment.client.name%></td>
             <%if payment.subscription_type.present?%>
               <td><%=payment.subscription_type.name %></td>
             <%else%>
