@@ -1,4 +1,22 @@
 <h1 class="text-center">GANANCIAS REGISTRADAS.</h1>  
+<div class="timetable">
+<h5>PAGOS POR RANGOS</h5>
+
+    <%= form_with url: "/incomes", method: :get do |f| %>
+        <div class="d-flex"> 
+        <label>Dia de incio
+            <%= date_field_tag :start_date, params[:start_date], class:"w-100"%>
+        </label>
+        <label>Dia final
+            <%= date_field_tag :end_date, params[:end_date], class:"w-100"%>
+        </lable>   
+        </div>
+        <div>
+            <%= f.submit "Buscar", class:"btn btn-outline-success mt-3 pl-4 "%>
+        </div>
+       
+    <% end %>    
+</div>   
 
 <div class="container-xxl mt-5">
     <div class="row">

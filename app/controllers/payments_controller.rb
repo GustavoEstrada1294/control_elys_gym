@@ -3,6 +3,13 @@ class PaymentsController < ApplicationController
     before_action :set_payment, except:[:index,:new,:create]
     def index
         @payments =Payment.all
+        if params[:start_date].present? && params[:end_date].present?
+            first_date = params[:start_date]
+            end_date = params[:end_date]
+            @payments = Payment.where(:created_at => first_date..end_date)
+        
+        end
+        
     end
 
     def show      

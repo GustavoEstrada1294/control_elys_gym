@@ -6,7 +6,7 @@
     <div class="timetable">
         <h5>PAGOS</h5>
         
-            <%= form_with url: "/incomes", method: :get do |f| %>
+            <%= form_with url: "/payments", method: :get do |f| %>
                 <div class="d-flex"> 
                 <label>Dia de incio
                     <%= date_field_tag :start_date, params[:start_date], class:"w-100"%>
@@ -18,9 +18,9 @@
                 <div>
                     <%= f.submit "Buscar", class:"btn btn-outline-success mt-3 pl-4 "%>
                 </div>
-            <% end %>
-        
-    </div>
+               
+            <% end %>    
+    </div>   
 </div>
 
 <div class="margin-50">
