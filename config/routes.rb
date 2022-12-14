@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :products
   resources :subscription_types
   resources :payments
+  resources :expirations, only: [:index]
   #get "/subscription_types", to: "subscription_types#index"
 
   get "/incomes", to: "incomes#index"
