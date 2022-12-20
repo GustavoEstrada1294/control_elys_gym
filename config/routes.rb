@@ -3,8 +3,13 @@ Rails.application.routes.draw do
   resources :clients
   resources :products
   resources :subscription_types
-  resources :payments
-  resources :expirations, only: [:index]
+  resources :payments do
+    collection do 
+      get :expirations
+    end
+
+  end
+ 
   #get "/subscription_types", to: "subscription_types#index"
 
   get "/incomes", to: "incomes#index"

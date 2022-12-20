@@ -1,6 +1,6 @@
 class PaymentsController < ApplicationController
     before_action :authenticate_user!
-    before_action :set_payment, except:[:index,:new,:create]
+    before_action :set_payment, except:[:index,:new,:create, :expirations]
     def index
         @payments =Payment.all
         if params[:start_date].present? && params[:end_date].present?
@@ -44,6 +44,10 @@ class PaymentsController < ApplicationController
         else
             render :edit
         end
+    end
+
+    def expirations
+        @payments =Payment.all
     end
 
 
