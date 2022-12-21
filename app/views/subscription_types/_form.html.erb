@@ -1,4 +1,4 @@
-<h1><%= name %> Pago</h1>
+<h1 class= "text-center"><%= name %> Pago</h1>
 <%= form_for(@subscription_type) do |f| %>
     <% @subscription_type.errors.full_messages.each do |message| %>
         <div class= "be-red white top-space">
@@ -13,6 +13,6 @@
     </div>
    
     <div class="field">
-        <%= f.submit "Guardar", class:"btn-custom"%>
+        <%= f.submit "Guardar", class:"btn btn-primary"%>
     </div>
 <% end %>

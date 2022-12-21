@@ -1,0 +1,12 @@
+<div class = "container_card">
+    <div class="card text-white bg-primary mb-3 " style="width: 30rem;">
+    <div class="card-header text-center">
+        TIPO DE SUSCRIPCION
+    </div>
+        <ul class="list-group list-group-flush ">
+            <li class="list-group-item border-primary mb-0 text-center"><%= @subscription_type.name.upcase%> </li>
+            <li class="list-group-item border-primary mb-0 text-center">$<%=@subscription_type.total%></li>
+            <li class="list-group-item border-primary mb-0 text-center"><%=link_to "EDITAR", edit_subscription_type_path(@subscription_type), class:"btn btn-outline-primary"%></li>
+        </ul>
+    </div>
+</div>  

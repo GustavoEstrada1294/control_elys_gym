@@ -1,5 +1,7 @@
 class SubscriptionTypesController < ApplicationController
     before_action :authenticate_user!
+    before_action :set_subscription_type, except:[:index,:new,:create]
+    
     def index
         @subscription_types = SubscriptionType.all    
     end
@@ -19,9 +21,31 @@ class SubscriptionTypesController < ApplicationController
         end
     end
 
+    def edit
+        
+    end
+
+    def show   
+       
+    end
+
+
+    def update
+    
+        if @subscription_type.update(subscription_type_params)
+            redirect_to @subscription_type
+        else
+            render :edit
+        end
+    end
+
+
     
 
     private
+    def set_subscription_type
+        @subscription_type = SubscriptionType.find(params[:id])
+    end
 
     def subscription_type_params
         params.require(:subscription_type).permit(:name, :total)
