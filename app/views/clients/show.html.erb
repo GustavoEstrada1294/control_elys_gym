@@ -4,8 +4,8 @@
         CLIENTA
     </div>
         <ul class="list-group list-group-flush ">
-            <li class="list-group-item border-primary mb-0 ">NOMBRE: <%= @client.name.upcase%> </li>
-            <li class="list-group-item border-primary mb-0">FECHA DE INSCRIPCION: <%=@client.created_at.strftime("%m/%d/%Y")%></li>
+            <li class="list-group-item border-primary mb-0 text-center">NOMBRE: <%= @client.name.upcase%> </li>
+            <li class="list-group-item border-primary mb-0 text-center">PRIMERA INSCRIPCION: <%=@client.created_at.strftime("%m/%d/%Y")%></li>
             <li class="list-group-item border-primary mb-0 text-center"><%=link_to "EDITAR", edit_client_path(@client), class:"btn btn-outline-primary"%></li>
         </ul>
     </div>

@@ -94,3 +94,10 @@ a,a:visited{
 a {
     text-decoration: none !important;
   }
+  
+.image_card{
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}

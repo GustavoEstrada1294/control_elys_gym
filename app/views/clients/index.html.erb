@@ -11,18 +11,25 @@
   </thead>
   <tbody>
     <% @clients.each do |client| %>
-      <tr>
-        <td class ="name_client"><%= client.name %></td>
-        <td>
-        <div class="d-flex">
-          <%= link_to "Ver", client, class: "btn btn-outline-success mr-3-custom" %>
-        </div>
-        </td>
-      </tr>  
+        <tr>
+          <td class ="name_client"><%= client.name %></td>
+          <%if client.payments.count > 0 %>
+            <td>
+              <div class="d-flex">
+                <%= link_to "Ver", client, class: "btn btn-outline-success mr-3-custom" %>
+              </div>
+            </td>
+          <%else%>
+            <td>
+                <div class="d-flex">
+                  <%= link_to "Ver", client, class: "btn btn-outline-success mr-3-custom" %>
+                  <%= button_to "Eliminar", client, class: "btn btn-outline-danger ",method: :delete %>
+                </div>
+            </td>
+          <%end%>
+        </tr>  
     <%end%>
   </tbody>
-
-
 </table>
 
 

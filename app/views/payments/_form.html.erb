@@ -6,14 +6,18 @@
                 * <%= message %>
             </div>
         <%end%>
+           
         <div class="field">
+        <strong>CLIENTA</strong>
             <%= f.collection_select(:client_id, Client.all, :id, :name, {}, {class:"form-control"}) %>
         </div>
         <div class="field">
+        <strong>TIPO DE SUBSCRIPCION</strong>
             <%= f.select(:subscription_type_id, SubscriptionType.all.collect { |st| [ st.name, st.id ] }, { include_blank: "" }, {class:"form-control"} ) %>
 
         </div>
         <div class="field">
+        <strong>SUPLEMENTO</strong>
             <%= f.select(:product_id, Product.all.collect { |st| [ st.name, st.id ] }, { include_blank: "" }, {class:"form-control"} ) %>
         </div>
     

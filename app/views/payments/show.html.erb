@@ -1,34 +1,29 @@
-<h1><%=@payment.client.name %></h1>
-<%if @payment.subscription_type.present?%>
-    <h3>subscripcion</h3>
-    <h5><%=@payment.subscription_type.name %></h5>
-    <h3>precio</h3>
-    <h5>$<%=@payment.subscription_type.total %></h5>
-<%else%>
-<h3>Compro</h3>
-    <h5><%=@payment.product.name%></h5>
-    <div>
-        <%= image_tag url_for(@payment.product.image) %>
-    </div>
-    
-    <h5><%=@payment.product.trademark%></h5>
-    <h5><%=@payment.product.type_product%></h5>
-    <h5>$<%=@payment.product.price%></h5>
-<%end%>
-
-<div>
-    <%=link_to "EDITAR", edit_payment_path(@payment), class:"btn btn-outline-primary"%>
-</div>
 
 <div class = "container_card">
     <div class="card text-white bg-primary mb-3 " style="width: 30rem;">
     <div class="card-header">
-        CLIENTA
+        <h1 class="text-center text-uppercase"><%=@payment.client.name %></h1>
     </div>
-        <ul class="list-group list-group-flush ">
-            <li class="list-group-item border-primary mb-0 "> </li>
-            <li class="list-group-item border-primary mb-0">FECHA DE INSCRIPCION:</li>
-            <li class="list-group-item border-primary mb-0 text-center"></li>
-        </ul>
+        <%if @payment.subscription_type.present?%>
+            <ul class="list-group list-group-flush ">
+                <li class="list-group-item border-primary mb-0 text-center">SUBSCRIPCION: <%=@payment.subscription_type.name %></li>
+                <li class="list-group-item border-primary mb-0 text-center">PAGO: $<%=@payment.subscription_type.total %></li>
+                <li class="list-group-item border-primary mb-0 text-center">FECHA DE INSCRIPCION: <%=@payment.created_at.strftime("%m/%d/%Y") %></li>
+                <li class="list-group-item border-primary mb-0 text-center"><%=link_to "EDITAR", edit_payment_path(@payment), class:"btn btn-outline-primary"%></li>
+            </ul>
+        <%else%>
+        <div class="image_card">
+            <%= image_tag url_for(@payment.product.image) %>
+        </div>
+            <ul class="list-group list-group-flush ">
+                <li class="list-group-item border-primary mb-0 text-center">COMPRO: <%=@payment.product.name.upcase%></li>
+                <li class="list-group-item border-primary mb-0 text-center">MARCA: <%=@payment.product.trademark%></li>
+                <li class="list-group-item border-primary mb-0 text-center">TIPO: <%=@payment.product.type_product%></</li>
+                <li class="list-group-item border-primary mb-0 text-center">$<%=@payment.product.price%></</li>
+                <li class="list-group-item border-primary mb-0 text-center">FECHA DE INSCRIPCION: <%=@payment.created_at.strftime("%m/%d/%Y") %></li>
+                <li class="list-group-item border-primary mb-0 text-center"><%=link_to "EDITAR", edit_payment_path(@payment), class:"btn btn-outline-primary"%></li>
+            </ul>
+
+        <%end%>
     </div>
 </div>  
