@@ -9,7 +9,7 @@
            
         <div class="field">
         <strong>CLIENTA</strong>
-            <%= f.collection_select(:client_id, Client.all, :id, :name, {}, {class:"form-control"}) %>
+            <%= f.collection_select(:client_id, current_user.clients.all, :id, :name, {}, {class:"form-control"}) %>
         </div>
         <div class="field">
         <strong>TIPO DE SUBSCRIPCION</strong>

@@ -28,7 +28,17 @@
                 </td>
                 <td><%=payment.created_at.strftime("%m/%d/%Y")%></td>
 
-                <td><%=(payment.created_at + 1.month).strftime("%m/%d/%Y")%></td>
+                <% if payment.subscription_type.name == "dia" %>
+                  <td><%=(payment.created_at + 1.day).strftime("%m/%d/%Y")%></td>
+                  <%dif =((payment.created_at.to_date + 1.day) - Date.today).to_i %>
+                
+                <% elsif payment.subscription_type.name == "semana" %>
+                  <td><%=(payment.created_at + 1.week).strftime("%m/%d/%Y")%></td>
+                  <%dif =((payment.created_at.to_date + 1.week) - Date.today).to_i %>
+
+                <%else%>
+                  <td><%=(payment.created_at + 1.month).strftime("%m/%d/%Y")%></td>
+                <%end%>
 
                 <%if dif <= 5 && dif >= 0 %>
                   <td>

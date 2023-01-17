@@ -3,7 +3,8 @@ class ClientsController < ApplicationController
     before_action :set_client, except:[:index,:new,:create]
 
     def index
-        @clients = Client.all
+        #@clients = Client.all
+        @clients = current_user.clients.all
         
     end
 

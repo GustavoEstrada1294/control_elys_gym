@@ -18,8 +18,9 @@
 #
 class Client < ApplicationRecord
    belongs_to :user
-   validates :name, presence: true, uniqueness: true
+   validates :name, presence: true
    has_many :payments
   
+   validates :user_id, uniqueness: { scope: :name }
    
 end
