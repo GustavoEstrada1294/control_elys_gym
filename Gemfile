@@ -10,7 +10,7 @@ gem "rails", "~> 7.0.4"
 gem "sprockets-rails"
 
 # Use sqlite3 as the database for Active Record
-gem "sqlite3", "~> 1.4"
+gem 'pg', '~> 1.2', '>= 1.2.3'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
@@ -71,9 +71,11 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
-
+gem 'will_paginate-bootstrap'
+gem 'will_paginate', '~> 3.0', '>= 3.0.7'
 gem "bootstrap"
 gem "devise"
 gem 'rails-i18n', '~> 7.0.0' 
 gem "jquery-rails"
 gem "sassc-rails"
+gem 'pundit', '~> 1.1'

@@ -2,19 +2,20 @@
 #
 # Table name: clients
 #
-#  id         :integer          not null, primary key
+#  id         :bigint           not null, primary key
 #  name       :string           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  user_id    :integer          not null
+#  user_id    :bigint           not null
 #
 # Indexes
 #
-#  index_clients_on_user_id  (user_id)
+#  index_clients_on_name_and_user_id  (name,user_id) UNIQUE
+#  index_clients_on_user_id           (user_id)
 #
 # Foreign Keys
 #
-#  user_id  (user_id => users.id)
+#  fk_rails_...  (user_id => users.id)
 #
 class Client < ApplicationRecord
    belongs_to :user

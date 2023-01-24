@@ -2,12 +2,12 @@
   <%=link_to "NUEVO REGISTRO", new_client_path, class:"btn btn-primary" %>
 </div>
 
-<h4 class="margin-50">Alumnas de <%=current_user.email%></h4>
+<h4 class="margin-50"> Clientas de <%=current_user.email%></h4>
 
 <table class="table table-striped">
-  <thead>
+  <thead class = "bg-primary text-white">
     <th>Nombre</th>
-    <th>opciones</th>
+    <th>Opciones</th>
   </thead>
   <tbody>
     <% @clients.each do |client| %>
@@ -32,6 +32,7 @@
     <%end%>
   </tbody>
 </table>
+<%= will_paginate @clients %>
 
 
 

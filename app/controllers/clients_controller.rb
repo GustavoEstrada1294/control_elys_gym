@@ -4,7 +4,7 @@ class ClientsController < ApplicationController
 
     def index
         #@clients = Client.all
-        @clients = current_user.clients.all
+        @clients = current_user.clients.all.paginate(:page =>params[:page], per_page: 10)
         
     end
 
@@ -30,8 +30,12 @@ class ClientsController < ApplicationController
     end
 
     def destroy
-        @client.destroy 
-        redirect_to clients_path
+        if @client.payments.count == 0
+            @client.destroy 
+            redirect_to clients_path
+        else
+           redirect_to clients_path, notice: "no se puede borrar ya tiene pagos"
+        end
     end
 
     def update

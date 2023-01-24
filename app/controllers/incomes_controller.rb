@@ -19,11 +19,25 @@ class IncomesController < ApplicationController
         @total_month = Payment.joins(:client).where("clients.user_id = ?", current_user ).where(:created_at => first_date..end_date).sum(:total)
         @total = Payment.joins(:client).where("clients.user_id = ?", current_user ).sum("total")
 
-        #@total_mixto = Payment.joins(:subscription_type).select("CASE WHEN subscription_types.name  =  'mixto' THEN subscription_types.total / 2 
-        #ELSE subscription_types.total END AS total1").sum("total1")
-         
+
+        
+        string = <<-SQL
+            SELECT 
+                SUM(CASE
+                    WHEN subscription_types.name = 'mixto' 
+                    THEN subscription_types.total / 2 
+                    WHEN subscription_types.name = 'paquete' 
+                    THEN subscription_types.total / 2 
+                    ELSE subscription_types.total
+                END) as total1 
+                FROM payments 
+                INNER JOIN subscription_types 
+                ON payments.subscription_type_id = subscription_types.id
+        SQL
+ 
+        @result = ActiveRecord::Base.connection.execute(string)
         
     end
-
     
 end
+ 

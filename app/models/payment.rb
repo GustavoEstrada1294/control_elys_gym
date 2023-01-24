@@ -2,13 +2,13 @@
 #
 # Table name: payments
 #
-#  id                   :integer          not null, primary key
+#  id                   :bigint           not null, primary key
 #  total                :decimal(, )
 #  created_at           :datetime         not null
 #  updated_at           :datetime         not null
-#  client_id            :integer
-#  product_id           :integer
-#  subscription_type_id :integer
+#  client_id            :bigint
+#  product_id           :bigint
+#  subscription_type_id :bigint
 #
 # Indexes
 #
@@ -18,9 +18,9 @@
 #
 # Foreign Keys
 #
-#  client_id             (client_id => clients.id)
-#  product_id            (product_id => products.id)
-#  subscription_type_id  (subscription_type_id => subscription_types.id)
+#  fk_rails_...  (client_id => clients.id)
+#  fk_rails_...  (product_id => products.id)
+#  fk_rails_...  (subscription_type_id => subscription_types.id)
 #
 class Payment < ApplicationRecord
 
@@ -31,6 +31,10 @@ class Payment < ApplicationRecord
     validate :relationship_validation
     validate :income_not_valid
     before_create :assign_total
+
+    #def self.paginate(page=1, per_page=5)
+     #   Payment.order("id desc").offset((page -1) * per_page).limit(per_page)
+    #end
 
     private
     def relationship_validation

@@ -6,7 +6,8 @@ class PaymentsController < ApplicationController
         #@payments =Payment.all
         #Payment.joins(client: :user).where("users.id = ?", 1 )
 
-        @payments = Payment.joins(:client).where("clients.user_id = ?", current_user )
+        @payments = Payment.joins(:client).where("clients.user_id = ?", current_user ).paginate(:page =>params[:page], per_page: 10)
+        
         if params[:start_date].present? && params[:end_date].present?
             first_date = params[:start_date]
             end_date = params[:end_date]
@@ -39,22 +40,22 @@ class PaymentsController < ApplicationController
     end
 
     def destroy 
-        @payment.destroy
-        redirect_to payments_path
+        #@payment.destroy
+        #redirect_to payments_path
     end
 
     def update
         
-        if @payment.update(payment_params)
-            redirect_to @payment
-        else
-            render :edit
-        end
+        #if @payment.update(payment_params)
+        #    redirect_to @payment
+        #else
+        #    render :edit
+        #end
     end
 
     def expirations
         #@payments =Payment.all
-        @payments = Payment.joins(:client).where("clients.user_id = ?", current_user )
+        @payments = Payment.joins(:client).where("clients.user_id = ?", current_user ).paginate(:page =>params[:page], per_page: 10)
     end
 
 

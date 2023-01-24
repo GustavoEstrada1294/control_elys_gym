@@ -26,20 +26,20 @@
 
 <div class="margin-50">
   <table class="table table-strip">
-    <thead>
+    <thead class = "bg-primary text-white">
       <th>Nombre</th>
-      <th>pago</th>
+      <th>Pago</th>
       <th>$</th>
-      <th>opciones</th>
+      <th>Opciones</th>
     </thead>
     <tbody>
       <% @payments.each do |payment| %>
         <tr>
           <td class="name_client"><%= payment.client.name%></td>
             <%if payment.subscription_type.present?%>
-              <td><%=payment.subscription_type.name %></td>
+              <td><%=payment.subscription_type.name.upcase%></td>
             <%else%>
-              <td><%=payment.product.name %></td>
+              <td><%=payment.product.name.capitalize %></td>
             <%end%>
             <%if payment.subscription_type.present?%>
               <td>$<%=payment.subscription_type.total %></td>
@@ -49,11 +49,16 @@
             <td>
             <div class="d-flex">
               <%= link_to "Ver", payment, class: "btn btn-outline-success mr-3-custom" %>
-              <%= button_to "Eliminar", payment, class: "btn btn-outline-danger ",method: :delete %>
+              
             </div>
             </td>
         </tr>
       <%end%> 
     </tbody>
   </table>
+  
+  
+
+  <%= will_paginate @payments%>
 </div>
+

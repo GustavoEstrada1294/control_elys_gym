@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :clients
   resources :products
   resources :subscription_types
-  resources :payments do
+  resources :payments, except: [:destroy, :update , :edit] do
     collection do 
       get :expirations
     end
