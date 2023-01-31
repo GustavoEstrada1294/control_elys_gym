@@ -1,0 +1,25 @@
+#@total_month = Payment.joins(:client).where("clients.user_id = ?", current_user ).where(:created_at => first_date..end_date).sum(:total)
+
+
+
+
+
+
+
+
+
+
+string = <<-SQL
+            SELECT 
+                SUM(CASE
+                    WHEN client.where("clients.user_id = ?")  = 'current_user' 
+                    THEN client.payments
+                    WHEN payments.where(:created_at => first_date..end_date) 
+                    THEN payments.total 
+                END) as total_mes 
+                FROM payments 
+                JOIN client 
+                ON payments.client_id = client.id
+        SQL
+ 
+#1        @total_month = ActiveRecord::Base.connection.execute(string)
