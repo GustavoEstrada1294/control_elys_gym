@@ -17,7 +17,7 @@
        
     <% end %>    
 </div>   
-<p><%=@result.first["total1"]%></p> #pagos mixtos
+
 
 <div class="container-xxl mt-5">
     <div class="row">
@@ -33,7 +33,7 @@
         <div class="col-sm-4">
             <div class="card text-white bg-primary mb-3 card_incomes">
                 <div class="card-body">
-                    <h2> total desde el 2023 a la fecha$<%=@total%></h2>
+                    <h2> total desde el 2023 a la fecha$<%=@total.first["total1"]%></h2>
                 </div>
             </div>
         </div>
@@ -42,7 +42,11 @@
         <div class="col-sm-4">
             <div class="card text-white bg-primary mb-3 card_incomes">
                 <div class="card-body">
-                <h2>Ganancias por rango $<%=@total_range%></h2>
+                    <% if @total_range.present? %>
+                        <h2>Ganancias por rango $<%=@total_range.first["total_r"] %></h2>
+                    <%else%>
+                        <h2>Ganancias por rango $</h2>                   
+                    <%end%>
                 </div>
             </div>
         </div>
