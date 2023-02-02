@@ -3,7 +3,6 @@ class ClientsController < ApplicationController
     before_action :set_client, except:[:index,:new,:create]
 
     def index
-        #@clients = Client.all
         @clients = current_user.clients.all.paginate(:page =>params[:page], per_page: 10)
         
     end

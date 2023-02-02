@@ -8,7 +8,7 @@
             <ul class="list-group list-group-flush ">
                 <li class="list-group-item border-primary mb-0 text-center">SUBSCRIPCION: <%=@payment.subscription_type.name %></li>
                 <li class="list-group-item border-primary mb-0 text-center">PAGO: $<%=@payment.subscription_type.total %></li>
-                <li class="list-group-item border-primary mb-0 text-center">FECHA DE INSCRIPCION: <%=@payment.created_at.strftime("%m/%d/%Y") %></li>
+                <li class="list-group-item border-primary mb-0 text-center">FECHA DE INSCRIPCION: <%=@payment.created_at.strftime("%d/%m/%Y") %></li>
             </ul>
         <%else%>
         <div class="image_card">
@@ -19,7 +19,7 @@
                 <li class="list-group-item border-primary mb-0 text-center">MARCA: <%=@payment.product.trademark%></li>
                 <li class="list-group-item border-primary mb-0 text-center">TIPO: <%=@payment.product.type_product%></</li>
                 <li class="list-group-item border-primary mb-0 text-center">$<%=@payment.product.price%></</li>
-                <li class="list-group-item border-primary mb-0 text-center">FECHA DE INSCRIPCION: <%=@payment.created_at.strftime("%m/%d/%Y") %></li>     
+                <li class="list-group-item border-primary mb-0 text-center">FECHA DE INSCRIPCION: <%=@payment.created_at.strftime("%d/%m/%Y") %></li>     
             </ul>
 
         <%end%>
