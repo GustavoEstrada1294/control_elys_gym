@@ -1,15 +1,15 @@
 <div class="container-fluid">
+<h1 class="text-capitalize text-center"><%=@product.name %></h1>
     <div class="d-flex">
         <%if @product.image.present?%>
-        <div>
-            <%= image_tag url_for(@product.image) %>   
+            <div class="w-75">
+                <%= image_tag url_for(@product.image) %>   
+            </div> 
         <%end%>
-        </div> 
-        
         <div class="product_description">    
             <%= @product.description %>            
         </div>        
     </div>
-    <h1 class="text-capitalize"><%=@product.name %></h1>
+    
     <div> <%=link_to "EDITAR", edit_product_path(@product), class:"btn btn-outline-primary"%></div>
 </div>

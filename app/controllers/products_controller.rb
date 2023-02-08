@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
     before_action :authenticate_user!
     before_action :set_product, except:[:index,:new,:create]
     def index
-        @products = Product.all.paginate(:page =>params[:page], per_page: 12)
+        @products = Product.all.paginate(:page =>params[:page], per_page: 8)
     end
 
     def show

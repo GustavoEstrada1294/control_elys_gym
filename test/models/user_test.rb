@@ -5,9 +5,7 @@
 #  id                     :bigint           not null, primary key
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
-#  name                   :string
 #  payment_total          :boolean          default(FALSE)
-#  permission_level       :string
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string

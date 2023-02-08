@@ -7,24 +7,23 @@ class IncomesController < ApplicationController
             end_date = params[:end_date]
             
             string_2 = <<-SQL
-                SELECT 
-                    SUM(CASE
-                        WHEN subscription_types.name = 'mixto' AND users.payment_total = false
-                        THEN subscription_types.total / 2 
-                        WHEN subscription_types.name = 'paquete' AND users.payment_total = false
-                        THEN subscription_types.total / 2 
-                        ELSE subscription_types.total 
-                    END) as total_r
-                    FROM payments 
-                    INNER JOIN clients
-                    ON payments.client_id = clients.id
-                    INNER JOIN subscription_types 
-                    ON payments.subscription_type_id = subscription_types.id
-                    INNER JOIN users
-                    ON clients.user_id = users.id
-                    WHERE clients.user_id = #{current_user.id}
-                    AND payments.created_at BETWEEN '#{first_date}' AND '#{end_date}'
-                   
+            SELECT 
+                SUM(CASE
+                    WHEN subscription_types.name = 'mixto' AND users.payment_total = false
+                    THEN payments.total / 2 
+                    WHEN subscription_types.name = 'paquete' AND users.payment_total = false
+                    THEN payments.total / 2      
+                    ELSE payments.total 
+                END) as total_r
+                FROM payments 
+                INNER JOIN clients
+                ON payments.client_id = clients.id
+                LEFT JOIN subscription_types 
+                ON payments.subscription_type_id = subscription_types.id
+                INNER JOIN users
+                ON clients.user_id = users.id
+                WHERE clients.user_id = #{current_user.id}
+                AND payments.created_at BETWEEN '#{first_date}' AND '#{end_date}'                    
             SQL
 
             @total_range = ActiveRecord::Base.connection.execute(string_2)   
@@ -38,15 +37,15 @@ class IncomesController < ApplicationController
             SELECT 
                 SUM(CASE
                     WHEN subscription_types.name = 'mixto' AND users.payment_total = false
-                    THEN subscription_types.total / 2 
+                    THEN payments.total / 2 
                     WHEN subscription_types.name = 'paquete' AND users.payment_total = false
-                    THEN subscription_types.total / 2 
-                    ELSE subscription_types.total
+                    THEN payments.total / 2 
+                    ELSE payments.total
                 END) as total_m
                 FROM payments 
                 INNER JOIN clients
                 ON payments.client_id = clients.id
-                INNER JOIN subscription_types 
+                LEFT JOIN subscription_types 
                 ON payments.subscription_type_id = subscription_types.id
                 INNER JOIN users
                 ON clients.user_id = users.id
@@ -62,16 +61,16 @@ class IncomesController < ApplicationController
             SELECT 
                 SUM(CASE
                     WHEN subscription_types.name = 'mixto' AND users.payment_total = false
-                    THEN subscription_types.total / 2 
+                    THEN payments.total / 2 
                     WHEN subscription_types.name = 'paquete' AND users.payment_total = false
-                    THEN subscription_types.total / 2 
-                    ELSE subscription_types.total
+                    THEN payments.total / 2 
+                    ELSE payments.total
                 END) as total1
                 FROM payments 
-                INNER JOIN subscription_types 
-                ON payments.subscription_type_id = subscription_types.id
                 INNER JOIN clients
                 ON payments.client_id = clients.id
+                LEFT JOIN subscription_types 
+                ON payments.subscription_type_id = subscription_types.id
                 INNER JOIN users
                 ON clients.user_id = users.id
                 WHERE clients.user_id = #{current_user.id}   

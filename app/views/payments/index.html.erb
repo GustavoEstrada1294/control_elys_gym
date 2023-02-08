@@ -42,9 +42,9 @@
               <td><%=payment.product.name.capitalize %></td>
             <%end%>
             <%if payment.subscription_type.present?%>
-              <td>$<%=payment.subscription_type.total %></td>
+              <td>$<%=payment.total %></td>
             <%else%>
-              <td>$<%=payment.product.price %></td>
+              <td>$<%=payment.total %></td>
             <%end%>
             <td>
             <div class="d-flex">
