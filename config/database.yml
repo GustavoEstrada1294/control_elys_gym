@@ -4,14 +4,17 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
 development:
   <<: *default
   database: control_elys_gym_development
   #username: postgres
   #password: postgres
+  
 test:
   <<: *default
-  database: porteton_test
+  database: control_elys_gym_development
+  
 production:
   <<: *default
   database: control_elys_gym
