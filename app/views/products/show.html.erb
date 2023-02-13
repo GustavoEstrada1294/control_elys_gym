@@ -2,7 +2,7 @@
 <h1 class="text-capitalize text-center"><%=@product.name %></h1>
     <div class="d-flex">
         <%if @product.image.present?%>
-            <div class="w-75">
+            <div class="w-85">
                 <%= image_tag url_for(@product.image) %>   
             </div> 
         <%end%>

@@ -6,9 +6,9 @@
     </div>
         <%if @payment.subscription_type.present?%>
             <ul class="list-group list-group-flush ">
-                <li class="list-group-item border-primary mb-0 text-center">SUBSCRIPCION: <%=@payment.subscription_type.name %></li>
+                <li class="list-group-item border-primary mb-0 text-center">SUBSCRIPCION: <%=@payment.subscription_type.name.upcase %></li>
                 <li class="list-group-item border-primary mb-0 text-center">PAGO: $<%=@payment.total %></li>
-                <li class="list-group-item border-primary mb-0 text-center">FECHA DE INSCRIPCION: <%=@payment.created_at.strftime("%d/%m/%Y") %></li>
+                <li class="list-group-item border-primary mb-0 text-center">FECHA DE PAGO: <%=@payment.created_at.strftime("%d/%m/%Y") %></li>
             </ul>
         <%else%>
         <div class="image_card">
@@ -16,8 +16,8 @@
         </div>
             <ul class="list-group list-group-flush ">
                 <li class="list-group-item border-primary mb-0 text-center">COMPRO: <%=@payment.product.name.upcase%></li>
-                <li class="list-group-item border-primary mb-0 text-center">MARCA: <%=@payment.product.trademark%></li>
-                <li class="list-group-item border-primary mb-0 text-center">TIPO: <%=@payment.product.type_product%></</li>
+                <li class="list-group-item border-primary mb-0 text-center">MARCA: <%=@payment.product.trademark.upcase%></li>
+                <li class="list-group-item border-primary mb-0 text-center">TIPO: <%=@payment.product.type_product.upcase%></</li>
                 <li class="list-group-item border-primary mb-0 text-center">$<%=@payment.total%></</li>
                 <li class="list-group-item border-primary mb-0 text-center">FECHA DE PAGO: <%=@payment.created_at.strftime("%d/%m/%Y") %></li>     
             </ul>
