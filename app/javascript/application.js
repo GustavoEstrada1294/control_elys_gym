@@ -1,7 +1,8 @@
-import "jquery";
-import "jquery-ui-dist";
-import "jqtree";
+// Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
+import "@hotwired/turbo-rails"
+import "controllers"
 
-console.log(window.$);   // jQuery is already global
-console.log($.ui);       // jquery-ui initialized on import
-console.log($().tree);   // jqtree also initialized
+import "popper"
+import "bootstrap"
+import "jquery"
+import "jquery_ujs"

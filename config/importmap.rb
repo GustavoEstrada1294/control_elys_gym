@@ -1,10 +1,15 @@
-# NOTE: pin jquery to jsdelivr. this will make jquery global on import;
-#       jspm wraps packages in a module [1], so jquery is not available globally.
-pin "jquery", to: "https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.js"
+# Pin npm packages by running ./bin/importmap
 
-# NOTE: a few answers suggested `jquery-ui-dist`. I couldn't add it with 
-#       `bin/importmap`; use https://generator.jspm.io/ to get the url.
-pin "jquery-ui-dist", to: "https://ga.jspm.io/npm:jquery-ui-dist@1.13.1/jquery-ui.js"
+pin "application", preload: true
+pin "@hotwired/turbo-rails", to: "turbo.min.js", preload: true
+pin "@hotwired/stimulus", to: "stimulus.min.js", preload: true
+pin "@hotwired/stimulus-loading", to: "stimulus-loading.js", preload: true
+pin_all_from "app/javascript/controllers", under: "controllers"
 
-# works fine
-pin "jqtree", to: "https://ga.jspm.io/npm:jqtree@1.6.2/lib/tree.jquery.js"
+pin "popper", to: 'popper.js', preload: true
+pin "bootstrap", to: "https://ga.jspm.io/npm:bootstrap@5.2.3/dist/js/bootstrap.esm.js"
+pin "jquery", to: "jquery.min.js", preload: true
+pin "jquery_ujs", to: "jquery_ujs.js", preload: true
+#pin "bootstrap" # @5.2.3
+#pin "@popperjs/core", to: "@popperjs--core.js" # @2.11.6
+pin "@popperjs/core", to: "https://ga.jspm.io/npm:@popperjs/core@2.11.6/lib/index.js"

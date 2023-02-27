@@ -2,26 +2,26 @@
 <h1 class = "text-center"><%= name %> Pago</h1>
     <%= form_for(@payment) do |f| %>
         <% @payment.errors.full_messages.each do |message| %>
-            <div class= "be-red white top-space">
+            <div class= "color-gym white top-space">
                 * <%= message %>
             </div>
         <%end%>
            
-        <div class="field">
+        <div class="form-group">
         <strong>CLIENTA</strong>
             <%= f.collection_select(:client_id, current_user.clients.all, :id, :name, {}, {class:"form-control"}) %>
         </div>
-        <div class="field">
+        <div class="form-group">
         <strong>TIPO DE SUBSCRIPCION</strong>
             <%= f.select(:subscription_type_id, SubscriptionType.all.collect { |st| [ st.name, st.id ] }, { include_blank: "" }, {class:"form-control"} ) %>
 
         </div>
-        <div class="field">
+        <div class="form-group">
         <strong>SUPLEMENTO</strong>
             <%= f.select(:product_id, Product.all.collect { |st| [ st.name, st.id ] }, { include_blank: "" }, {class:"form-control"} ) %>
         </div>
     
-        <div class="field">
+        <div class="form-group">
             <%= f.submit "Guardar", class:"btn btn-primary w-100" %>
         </div>
     <% end %>

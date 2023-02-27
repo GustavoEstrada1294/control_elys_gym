@@ -3,34 +3,26 @@
     font-family: 'Roboto', sans-serif;
 }
 
-a,a:visited{
-    color: inherit !important;
-    text-decoration: none;
-}
 #logo{
     font-size: 1.2em;
 }
 .no-margin{
     margin: 0px;
 }
-.be-red{
-    background-color:rgb(240, 16, 54);
-}
+
 .white{
     color:rgb(252, 250, 250)!important;
 }
-.large-padding{
-    padding: 8px 8px;
-    max-width: 100%;
-}
+
 .field{
     margin-top: 1em;
     height:50px; 
-    width:550px;
+    width:40em;
     margin-left: 11%;
 
     input {
         width: 30em;
+        
     }
 }
 .top-space{
@@ -40,7 +32,7 @@ a,a:visited{
     border: none;
     border-bottom: 1px solid;
     outline: none;
-    width: 100%;
+    width: 100% ;
     display: block;
     padding: 10px 0px;
     font-size: 1,2em;
@@ -80,7 +72,6 @@ a,a:visited{
 .product_description{
     margin-left: 5%;
     margin-top:5%;
-    
 }
 
 .difference_numbers{
@@ -101,6 +92,9 @@ a {
     background-color: white;
     display: flex;
     align-items: center;
-    justify-content: center;
-    
+    justify-content: center;   
+}
+
+.nav_pink{
+    background-color: rgb(223, 3, 124) !important;
 }

@@ -1,34 +1,41 @@
 <header>
-    <nav class= "be-red white large-padding">
-        <ul class= "no-list row center-xs middle-xs">
-            <li class= "col-md">
-                <h1 class= "no-margin" id ="logo">Elys Gym</h1>
-            </li> 
-            <li class= "col-md">
-                <%=link_to "Alumnas", clients_path%>
-            </li>
-            <li class= "col-md">
-                <%=link_to "Suplementos", products_path%>
-            </li>
-            <li class= "col-md">
-                <%=link_to "Ganancias", incomes_path%>
-            </li>
-            <li class= "col-md">
-                <%=link_to "Tipos de Suscripcion", subscription_types_path%>
-            </li>
-            <li class= "col-md">
-                <%=link_to "Registro de pagos", payments_path%>
-            </li>
-            <% if user_signed_in? %>
-                <li class="col-md">
-                    <%=button_to "Cerrar Sesion", destroy_user_session_path, method: :delete,class: "btn btn-link text-white" %> 
+    <nav class="navbar navbar-expand-lg navbar-light" style="background: #f30e98;">
+        <div class="container-fluid">
+        <h1 class= "no-margin" id ="logo">Elys Gym</h1>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item mt-1" style="margin-left: 4em;">
+                    <a class="nav-link active" aria-current="page" <%=link_to "Alumnas", clients_path%> </a>
                 </li>
-            <%else%>
-            <li class="col-md">
-                <%=link_to "Crear cuenta", new_user_registration_path %>
-            </li>
-         
-            <%end%>
-        </ul>
-    </nav>
+                <li class="nav-item mt-1" >
+                    <a class="nav-link" <%=link_to "Suplementos", products_path%> </a>
+                </li>
+                <li class="nav-item mt-1">
+                    <a class="nav-link" <%=link_to "Ganancias", incomes_path%> </a>
+                </li>
+                <li class="nav-item mt-1">
+                    <a class="nav-link" <%=link_to "Tipos de Suscripcion", subscription_types_path%> </a>
+                </li>
+                <li class="nav-item mt-1">
+                    <a class="nav-link"  <%=link_to "Registro de pagos", payments_path%> </a>
+                </li>
+                <% if user_signed_in? %>
+                    <li class="nav-item mt-1">
+                        <a> <%=button_to "Cerrar Sesion", destroy_user_session_path, method: :delete,class: "btn btn-link text-black text-decoration-none" %> </a>
+                    </li>
+                <%else%>
+                    <li class="nav-item mt-1">
+                        <a> <%=link_to "Crear cuenta", new_user_registration_path, class: "btn btn-link text-black" %> </a>
+                    </li>
+                <%end%>
+
+
+                
+            </ul>
+            </div>
+        </div>
+    </nav>   
 </header>

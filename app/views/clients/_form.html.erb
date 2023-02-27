@@ -1,16 +1,16 @@
-<h1 class="text-center"><%= name %> clienta</h1>
-<%= form_for(@client) do |f| %>
-    <% @client.errors.full_messages.each do |message| %>
-        <div class= "be-red white top-space">
-            * <%= message %>
+    <h1 class="text-center"><%= name %> clienta</h1>
+    <%= form_for(@client) do |f| %>
+        <% @client.errors.full_messages.each do |message| %>
+            <div class= "color-gym white top-space">
+                * <%= message %>
+            </div>
+        <%end%>
+        
+        <div class="form-group mt-3">
+            <%= f.text_field :name, placeholder: "Nombre de la clienta", class:"form-control" %>
         </div>
-    <%end%>
     
-    <div class="field">
-        <%= f.text_field :name, placeholder: "Nombre de la clienta", class:"form-control" %>
-    </div>
-   
-    <div class="field">
-        <%= f.submit "Guardar", class:"btn btn-primary"%>
-    </div>
-<% end %>
+        <div class="form-group mt-2">
+            <%= f.submit "Guardar", class:"btn btn-primary"%>
+        </div>
+    <% end %>   
