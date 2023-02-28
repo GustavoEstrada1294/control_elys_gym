@@ -1,0 +1,8 @@
+{
+    "name": "control_elys_gym",
+    "description": "control de gym",
+    "version": "1.0.0",
+    "engines": {
+      "node": "18.14.2"
+    }
+  }
