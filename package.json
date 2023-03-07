@@ -9,7 +9,7 @@
       "@hotwired/stimulus": "^3.0.1"   
     },
     "scripts": {
-      "build": "esbuild --sourcemap --outdir=app/assets/builds"
+      "build": "esbuild --sourcemap app/assets/builds"
     },
     "devDependencies": {
       "esbuild": "^0.12.28"
