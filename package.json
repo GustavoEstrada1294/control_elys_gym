@@ -10,5 +10,8 @@
     },
     "scripts": {
       "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds"
+    },
+    "devDependencies": {
+      "esbuild": "^0.12.28"
     }
   }
