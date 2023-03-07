@@ -11,7 +11,8 @@ module ControlGym
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
     I18n.available_locales = [:en, :es]
-    config.i18n.default_locale = :es
+    config.i18n.default_locale = :esconfig.active_support.key_generator_hash_digest_class = OpenSSL::Digest::SHA1
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
