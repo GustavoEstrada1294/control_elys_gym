@@ -3,12 +3,12 @@ class PaymentsController < ApplicationController
     before_action :set_payment, except:[:index,:new,:create, :expirations]
 
     def index
-        @payments = Payment.joins(:client).where("clients.user_id = ?", current_user ).paginate(:page =>params[:page], per_page: 10)
+        @payments = Payment.joins(:client).where("clients.user_id = ?", current_user ).order(created_at: :desc).paginate(:page =>params[:page], per_page: 10)
         
         if params[:start_date].present? && params[:end_date].present?
             first_date = params[:start_date]
             end_date = params[:end_date]
-            @payments = Payment.joins(:client).where("clients.user_id = ?", current_user ).where(:created_at => first_date..end_date).paginate(:page =>params[:page], per_page: 10)
+            @payments = Payment.joins(:client).where("clients.user_id = ?", current_user ).where(:created_at => first_date..end_date).order(created_at: :desc).paginate(:page =>params[:page], per_page: 10)
         
         end
         
